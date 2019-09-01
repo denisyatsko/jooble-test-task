@@ -38,6 +38,7 @@
     "recompose": "^0.30.0",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
+    "redux-firestore": "^0.8.0",
     "redux-thunk": "^2.3.0"
   }
 }

@@ -1,11 +1,14 @@
 import React from 'react';
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
 import { compose } from 'redux'
 import { reactReduxFirebase } from 'react-redux-firebase'
 import FirebaseContext, { withFirebase } from './components/HOC/withFirebase';
-import {credential} from "firebase-admin";
 
-const firebaseConfig = {
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import 'firebase/auth'
+
+export const firebaseConfig = {
     apiKey: "AIzaSyBPGa2QRSfvGMLVSgvPeCYRX_fJL7zdex8",
     authDomain: "joobleinterviewfrontend.firebaseapp.com",
     databaseURL: "https://joobleinterviewfrontend.firebaseio.com",
@@ -15,14 +18,18 @@ const firebaseConfig = {
     appId: "1:84956270178:web:65528f215c98826a"
 };
 
-const config = {
+export const config = {
     userProfile: 'users', // firebase root where user profiles are stored
     enableLogging: false, // enable/disable Firebase's database logging
 };
 
+firebase.initializeApp(firebaseConfig);
+firebase.firestore();
+
 class Firebase {
     constructor() {
-        firebase.initializeApp(firebaseConfig);
+        // firebase.initializeApp(firebaseConfig);
+        // firebase.firestore();
         this.auth = firebase.auth();
     }
 
@@ -32,7 +39,8 @@ class Firebase {
     doSignOut = () => this.auth.signOut();
 }
 
+export default firebase;
 
 export { FirebaseContext, withFirebase };
-export default Firebase;
+// export default Firebase;
 
