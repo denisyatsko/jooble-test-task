@@ -2,14 +2,14 @@ import { combineReducers } from 'redux';
 import { firebaseReducer } from 'react-redux-firebase';
 import { firestoreReducer } from 'redux-firestore';
 
-import tracks from './tracks';
-import playlists from './playlists';
-import authReducer from './auth';
+import collectionReducer from './collectionReducer';
+import authReducer from './authReducer';
 
 const rootReducer = combineReducers({
     firebase: firebaseReducer,
     firestore: firestoreReducer,
-    auth: authReducer
+    auth: authReducer,
+    collection: collectionReducer,
 });
 
 export default rootReducer;

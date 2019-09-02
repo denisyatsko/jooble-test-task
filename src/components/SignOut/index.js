@@ -1,9 +1,19 @@
 import React from 'react';
-import { withFirebase } from '../../firebase';
+import {connect} from 'react-redux';
+import {signOut} from '../../store/actions/authActions';
 
-const SignOutButton = ({ firebase }) => (
-    <button type='button' onClick={firebase.doSignOut}>
+const SignOutButton = (props) => (
+    <button
+        type='button'
+        onClick={props.signOut}>
         Sign Out
     </button>
 );
-export default withFirebase(SignOutButton);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+};
+
+export default connect(null, mapDispatchToProps)(SignOutButton);

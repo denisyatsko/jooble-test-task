@@ -4,8 +4,6 @@ import {
     Route,
 } from 'react-router-dom';
 import {connect} from 'react-redux';
-// import { withFirebase } from 'react-redux-firebase'
-import {withFirebase} from './firebase';
 import {compose} from 'recompose';
 
 import Navigation from './components/Navigation';
@@ -15,8 +13,6 @@ import HomePage from './components/pages/HomePage';
 import * as ROUTES from './constants';
 
 
-import {asynGetTracks} from './store/actions/tracks';
-
 import './App.css';
 
 class App extends Component {
@@ -24,26 +20,9 @@ class App extends Component {
         authUser: null
     };
 
-    // componentDidMount() {
-    //     this.listener = this.props.firebase.auth.onAuthStateChanged(
-    //         authUser => {
-    //             authUser
-    //                 ? this.setState({authUser})
-    //                 : this.setState({authUser: null});
-    //         });
-    // }
-    //
-    // componentWillUnmount() {
-    //     this.listener();
-    // }
-
     _click = () => {
         this.props.addToList(this.state.value);
         this.setState({value: ''});
-    };
-
-    _getTracks = () => {
-        this.props.onGetTracks()
     };
 
     _onChange = (e) => {
@@ -65,7 +44,7 @@ class App extends Component {
 }
 
 export default compose(
-    withFirebase,
+    // withFirebase,
     connect(
         state => ({
             tracks: state.tracks
@@ -77,9 +56,6 @@ export default compose(
                     value
                 };
                 dispatch({type: 'TEST_DISPATCH', payload})
-            },
-            onGetTracks: () => {
-                dispatch(asynGetTracks());
             }
         }))
 )(App);
