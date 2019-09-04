@@ -1,32 +1,18 @@
 const medicinesReducer = (state = [], action) => {
   const {data, id} = action;
+  // console.log(action)
 
   switch (action.type) {
     case 'GET_COLLECTION':
-      console.log(data);
-      return {
-        ...state,
-        data
-      };
+      console.log('GET_COLLECTION');
+      return data;
     case 'ADD_MEDICINE':
       console.log('ADD_MEDICINE');
-      return {
-        ...state,
-        data
-      };
+      return [...state, data];
     case 'DELETE_MEDICINE':
       console.log('DELETE_MEDICINE');
 
-      return state;
-
-      // console.log(state.data.filter((element) => element.name !== id));
-
-      // return {
-      //   ...state,
-      //   ...state.data.filter((element) => element.name !== id)
-      // };
-    return state.data.filter((element) => element.name !== id);
-
+      return state.filter(element => element.id !== id);
     default:
       return state;
   }

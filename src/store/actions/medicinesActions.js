@@ -5,15 +5,19 @@ export const getCollection = () => {
     const firestore = getFirestore();
 
     firestore.collection(collection).get().then((doc) => {
-      if (doc) {
-        let data = [];
+      let data = [];
 
-        doc.forEach((doc) => {
-          data.push(doc.data())
-        });
+      doc.forEach((doc) => {
+        let info = doc.data();
+        let id = {id: doc.id};
+        let item = { ...id,...info };
 
-        dispatch({type: 'GET_COLLECTION', data})
-      }
+        data.push(item);
+      });
+
+      dispatch({type: 'GET_COLLECTION', data})
+    }).catch((err) => {
+      console.log(`error => ${err}`);
     });
   }
 };
@@ -21,13 +25,13 @@ export const getCollection = () => {
 export const addMedicine = (medicine) => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
+    firestore.collection(collection).add(medicine).then((doc) => {
+      let id = {id: doc.id};
+      let data = {...id,...medicine };
 
-    firestore.collection(collection).add({
-      ...medicine
-    }).then(() => {
-      dispatch({type: 'ADD_MEDICINE', medicine})
+      dispatch({type: 'ADD_MEDICINE', data})
     }).catch((err) => {
-      dispatch({type: 'ADD_MEDICINE_ERROR', err})
+      console.log(`error => ${err}`);
     })
   }
 };
@@ -36,21 +40,10 @@ export const deleteMedicine = (id) => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
 
-    // firestore.collection(collection).doc().delete().then((data) => {
-    //   console.log(data);
-    //   dispatch({type: 'DELETE_MEDICINE', id})
-    // });
-
-    firestore.collection(collection).doc('medicine').delete();
-
-    firestore.collection(collection).get().then((doc) => {
-      if (doc) {
-        doc.forEach((doc) => {
-          // console.log(doc.data(id).delete())
-        });
-
-        // dispatch({type: 'GET_COLLECTION', data})
-      }
+    firestore.collection(collection).doc(id).delete().then(() => {
+      dispatch({type: 'DELETE_MEDICINE', id})
+    }).catch((err) => {
+      console.log(`error => ${err}`);
     });
   }
 };

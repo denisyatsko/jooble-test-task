@@ -4,20 +4,12 @@ import {addMedicine} from '../../../store/actions/medicinesActions';
 
 const INITIAL_STATE = {};
 
-let ID = () => {
-    return '_' + Math.random().toString(36).substr(2, 9);
-};
-
 class Form extends Component {
     state = {...INITIAL_STATE};
 
     onSubmit = event => {
         event.preventDefault();
-        let medicine = {
-            ...{id: ID()},
-            ...this.state,
-        };
-        this.props.addMedicine(medicine);
+        this.props.addMedicine(this.state);
     };
 
     onChange = event => {

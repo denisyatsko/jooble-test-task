@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {deleteMedicine, getCollection} from '../../store/actions/medicinesActions';
 
@@ -18,16 +18,18 @@ class Medicines extends Component {
   // };
 
   listView = (g) => {
-    return(
+    // console.log(g);
+
+    return (
       //  { g.code } -> { g.id }  and this id must random
-      <li className="collection-item" key={ g.id } >
-        { g.name }
-        <span>{ g.code }</span>
+      <li className="collection-item" key={g.id}>
+        {g.name}
+        <span>{g.code}</span>
         <Link className='secondary-content' to='/'>
           <i className='material-icons'>edit</i>
         </Link>
         <button
-          onClick={() => this.props.deleteMedicine(g.name)}
+          onClick={() => this.props.deleteMedicine(g.id)}
           // onClick={() => this.deleteMedicine(g.name)}
           type='button'>
           <i className='material-icons'>delete</i>
@@ -41,15 +43,15 @@ class Medicines extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    // console.log(prevProps)
     if (this.props.medicines !== prevProps.medicines) {
       this.setState({medicines: this.props.medicines})
     }
   }
 
   render() {
-    const { medicines, deleteMedicine } = this.props;
+    const {medicines, deleteMedicine} = this.props;
     let JSX;
-    // console.log(this.props);
 
 
     // medicines.length === 0 ?
@@ -71,11 +73,19 @@ class Medicines extends Component {
     //     )
     //   });{/*{ JSX }*/}
 
-    return(
+    return (
       <div>
         <ul className="collection">
+          {medicines && medicines.map(item =>
+            <li key={item.id}>{item.task}
+              {item.name}
+              <span>{item.code}</span>
+              <button
+                onClick={() => deleteMedicine(item.id)}>x
+              </button>
+            </li>)}
 
-          {medicines && medicines.map((g) => this.listView(g))}
+          {/*{medicines && medicines.map((g) => this.listView(g))}*/}
         </ul>
       </div>
     );
@@ -83,15 +93,15 @@ class Medicines extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state)
+  // console.log(state.collection)
   return {
-    medicines: state.collection.data
+    medicines: state.collection
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteMedicine: (id) => { dispatch(deleteMedicine(id))},
+    deleteMedicine: (id) => dispatch(deleteMedicine(id)),
     getCollection: () => dispatch(getCollection())
   }
 };
