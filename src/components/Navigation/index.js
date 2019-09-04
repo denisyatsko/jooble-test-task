@@ -15,7 +15,7 @@ const Navigation = (props) => {
 const NavigationAuth = () => (
     <ul>
         <li>
-            <Link to={ROUTES.LANDING}>Landing</Link>
+            <Link to={ROUTES.FORM}>Add medicine</Link>
         </li>
         <li>
             <Link to={ROUTES.HOME}>Home</Link>
@@ -29,7 +29,7 @@ const NavigationAuth = () => (
 const NavigationNonAuth = () => (
     <ul>
         <li>
-            <Link to={ROUTES.LANDING}>Landing</Link>
+            <Link to={ROUTES.FORM}>Add medicine</Link>
         </li>
         <li>
             <Link to={ROUTES.SIGN_IN}>Sign In</Link>

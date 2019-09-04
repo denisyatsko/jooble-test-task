@@ -2,14 +2,14 @@ import { combineReducers } from 'redux';
 import { firebaseReducer } from 'react-redux-firebase';
 import { firestoreReducer } from 'redux-firestore';
 
-import collectionReducer from './collectionReducer';
+import medicinesReducer from './medicinesReducer';
 import authReducer from './authReducer';
 
 const rootReducer = combineReducers({
     firebase: firebaseReducer,
     firestore: firestoreReducer,
     auth: authReducer,
-    collection: collectionReducer,
+    collection: medicinesReducer,
 });
 
 export default rootReducer;

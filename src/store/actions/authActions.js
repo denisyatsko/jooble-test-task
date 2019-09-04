@@ -10,8 +10,6 @@ export const signIn = (credentials) => {
         }).catch((error) => {
             dispatch({type: 'SIGNIN_ERROR', error})
         });
-
-
     }
 };
 

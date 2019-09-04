@@ -1,6 +1,3 @@
-import React from 'react';
-// import FirebaseContext, { withFirebase } from './components/HOC/withFirebase';
-
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
@@ -20,6 +17,8 @@ export const config = {
     enableLogging: false, // enable/disable Firebase's database logging
     useFirestoreForProfile: true
 };
+
+export const collection = 'medicines_denis';
 
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();

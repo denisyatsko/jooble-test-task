@@ -1,10 +1,9 @@
 import thunk from 'redux-thunk';
-import firebase, {config, firebaseConfig} from './firebase';
+import firebase, {config} from './firebase';
 import {createStore, applyMiddleware, compose} from 'redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
 import {getFirestore, reduxFirestore} from 'redux-firestore';
 import {getFirebase, reactReduxFirebase} from 'react-redux-firebase';
-import reducer from './redusers';
+import reducer from './store/redusers/rootReducer';
 
 const composeEnhancers =
     typeof window === 'object' &&

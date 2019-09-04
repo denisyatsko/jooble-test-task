@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import {compose} from 'recompose';
 
 import Navigation from './components/Navigation';
-import LandingPage from './components/pages/LandingPage';
+import Form from './components/pages/Form';
 import SignInPage from './components/pages/SignInPage';
 import HomePage from './components/pages/HomePage';
 import * as ROUTES from './constants';
@@ -34,7 +34,7 @@ class App extends Component {
             <Router>
                 <div>
                     <Navigation authUser={this.state.authUser}/>
-                    <Route exact path={ROUTES.LANDING} component={LandingPage}/>
+                    <Route exact path={ROUTES.FORM} component={Form}/>
                     <Route path={ROUTES.SIGN_IN} component={SignInPage}/>
                     <Route path={ROUTES.HOME} component={HomePage}/>
                 </div>
