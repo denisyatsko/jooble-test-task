@@ -1,22 +1,30 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getCollection} from '../../../store/actions/getCollection';
+import Medicines from '../../medicines';
 import {signOut} from "../../../store/actions/authActions";
 
 class HomePage extends Component {
+    state = {
+        medicines: ''
+    };
+
     componentDidMount() {
-       const data = this.props.getCollection();
+        this.props.getCollection();
+    }
 
-        // this.props.getCollection().then(querySnapshot => {
-        //
-        // });
-
-        // console.log(data)
+    componentDidUpdate(prevProps) {
+        if (this.props.medicines !== prevProps.medicines) {
+            this.setState({medicines: this.props.medicines})
+        }
     }
 
     render() {
         return (
-            <h1>HomePage</h1>
+            <div>
+                <h1>HomePage</h1>
+                <Medicines medicines={this.state.medicines}/>
+            </div>
         )
     }
 }
@@ -27,4 +35,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(null, mapDispatchToProps)(HomePage);
+const mapStateToProps = (state) => {
+    return {
+        medicines: state.collection.data
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
