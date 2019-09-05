@@ -1,29 +1,23 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getCollection} from '../../../store/actions/medicinesActions';
-import Medicines from '../../medicines';
+import {Link} from 'react-router-dom';
+import {getCollection, deleteMedicine} from '../../../store/actions/medicinesActions';
+// import Medicines from '../../medicines';
+import {Redirect} from 'react-router-dom';
+import * as ROUTES from '../../../constants';
+import '../../../theme/grid.scss';
 
 class HomePage extends Component {
   state = {
-    // medicines: ''
+    medicines: []
   };
 
-  // componentDidMount() {
-  //   this.props.getCollection();
-  // }
-  //
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.medicines !== prevProps.medicines) {
-  //     this.setState({medicines: this.props.medicines})
-  //   }
-  // }
-
   render() {
+    if (!this.props.auth.uid) return <Redirect to={ROUTES.SIGN_IN}/>;
+
     return (
-      <div>
+      <div className='container'>
         <h1>HomePage</h1>
-        <Medicines/>
-        {/*<Medicines medicines={this.state.medicines}/>*/}
       </div>
     )
   }
@@ -31,13 +25,14 @@ class HomePage extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // getCollection: () => dispatch(getCollection())
+    getCollection: () => dispatch(getCollection())
   }
 };
 
 const mapStateToProps = (state) => {
   return {
-    // medicines: state.collection.data
+    medicines: state.collection.data,
+    auth: state.firebase.auth
   }
 };
 

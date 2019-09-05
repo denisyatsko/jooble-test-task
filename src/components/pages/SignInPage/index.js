@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {signIn} from '../../../store/actions/authActions';
 import * as ROUTES from '../../../constants';
+import '../../../theme/grid.scss';
 
 const INITIAL_STATE = {
     email: 'yatskodi@gmail.com',
@@ -27,12 +28,12 @@ class SignIn extends Component {
     render() {
         const {email, password} = this.state;
         const isInvalid = password === '' || email === '';
-        const {authError, uth} = this.props;
+        const {authError, auth} = this.props;
 
-        if (uth.uid) { return <Redirect to={ROUTES.HOME}/> }
+        if (auth.uid) { return <Redirect to={ROUTES.HOME}/> }
 
         return (
-            <div>
+            <div className='container'>
                 <h1>SignIn</h1>
                 <form onSubmit={this.onSubmit}>
                     <input
@@ -68,7 +69,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         authError: state.auth.authError,
-        uth: state.firebase.auth
+        auth: state.firebase.auth
     }
 };
 

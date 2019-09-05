@@ -1,0 +1,26 @@
+@import '../../theme/vars.scss';
+@import '../../theme/breakpoints.scss';
+
+.btn {
+    font-size: 30px;
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 40px;
+    right: 100px;
+
+    svg {
+        fill: #fff;
+        transition: $transition;
+
+        @media #{$desktop} {
+            fill: $red;
+        }
+
+        &:hover {
+            fill: $red;
+        }
+    }
+}

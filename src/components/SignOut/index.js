@@ -1,12 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {signOut} from '../../store/actions/authActions';
+import { Icon } from 'react-icons-kit';
+import {signOut as signOutIcon} from 'react-icons-kit/fa/signOut';
+import styles from './styles.module.scss';
 
 const SignOutButton = (props) => (
     <button
         type='button'
+        className={styles.btn}
         onClick={props.signOut}>
-        Sign Out
+        <Icon
+          icon={signOutIcon}
+          size={'100%'}/>
     </button>
 );
 

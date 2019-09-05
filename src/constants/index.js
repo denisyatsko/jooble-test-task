@@ -1,3 +1,3 @@
-export const FORM = '/';
+export const HOME = '/';
+export const FORM = '/form';
 export const SIGN_IN = '/signin';
-export const HOME = '/home';

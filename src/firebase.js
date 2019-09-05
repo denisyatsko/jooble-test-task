@@ -21,6 +21,6 @@ export const config = {
 export const collection = 'medicines_denis';
 
 firebase.initializeApp(firebaseConfig);
-firebase.firestore();
+// firebase.firestore();
 
 export default firebase;

@@ -3,19 +3,24 @@ import {Link} from 'react-router-dom';
 import * as ROUTES from '../../constants';
 import SignOutButton from '../SignOut';
 import {connect} from 'react-redux';
+import styles from './styles.module.scss';
+import AddMedicineButton from '../addMedicine';
+import '../../theme/grid.scss';
 
 const Navigation = (props) => {
     const { auth } = props;
     const isAuth = auth.uid;
     return(
-        <div>{isAuth ? <NavigationAuth/> : <NavigationNonAuth/>}</div>
+        <div className={styles.listWrapper}>
+          {isAuth ? <NavigationAuth/> : <NavigationNonAuth/>}
+        </div>
     );
 };
 
 const NavigationAuth = () => (
-    <ul>
+    <ul className={`${styles.list} container`}>
         <li>
-            <Link to={ROUTES.FORM}>Add medicine</Link>
+            <Link to={ROUTES.FORM}><AddMedicineButton/></Link>
         </li>
         <li>
             <Link to={ROUTES.HOME}>Home</Link>
@@ -27,10 +32,7 @@ const NavigationAuth = () => (
 );
 
 const NavigationNonAuth = () => (
-    <ul>
-        <li>
-            <Link to={ROUTES.FORM}>Add medicine</Link>
-        </li>
+    <ul className={styles.list}>
         <li>
             <Link to={ROUTES.SIGN_IN}>Sign In</Link>
         </li>
@@ -44,3 +46,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Navigation);
+
+
