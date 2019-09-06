@@ -1,6 +1,9 @@
+// Core
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+
+// instruments
 import * as ROUTES from '../../../constants';
 import {addMedicine} from '../../../store/actions/medicinesActions';
 

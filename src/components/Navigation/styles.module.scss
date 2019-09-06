@@ -1,8 +1,9 @@
 @import '../../theme/vars.scss';
 
-.listWrapper {
+.header {
     background-color: $blue;
-    padding: 20px 0;
+    padding: 10px 0;
+    min-height: 75px;
 }
 
 .list {

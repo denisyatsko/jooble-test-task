@@ -1,48 +1,41 @@
+// Core
 import React from 'react';
-import {Link} from 'react-router-dom';
-import * as ROUTES from '../../constants';
-import SignOutButton from '../SignOut';
 import {connect} from 'react-redux';
-import styles from './styles.module.scss';
+import {Link} from 'react-router-dom';
+import {isEmpty} from 'react-redux-firebase';
+
+// Components
+import SignOutButton from '../SignOut';
 import AddMedicineButton from '../addMedicine';
+
+// instruments
+import * as ROUTES from '../../constants';
+import styles from './styles.module.scss';
 import '../../theme/grid.scss';
 
 const Navigation = (props) => {
-    const { auth } = props;
-    const isAuth = auth.uid;
-    return(
-        <div className={styles.listWrapper}>
-          {isAuth ? <NavigationAuth/> : <NavigationNonAuth/>}
-        </div>
-    );
+  let auth = props.auth;
+
+  return (
+    <header className={styles.header}>
+      {!isEmpty(auth) && (
+        <ul className={`container ${styles.list}`}>
+          <li>
+            <Link to={ROUTES.FORM}><AddMedicineButton/></Link>
+          </li>
+          <li>
+            <SignOutButton/>
+          </li>
+        </ul>
+      )}
+    </header>
+  );
 };
 
-const NavigationAuth = () => (
-    <ul className={`${styles.list} container`}>
-        <li>
-            <Link to={ROUTES.FORM}><AddMedicineButton/></Link>
-        </li>
-        <li>
-            <Link to={ROUTES.HOME}>Home</Link>
-        </li>
-        <li>
-            <SignOutButton/>
-        </li>
-    </ul>
-);
-
-const NavigationNonAuth = () => (
-    <ul className={styles.list}>
-        <li>
-            <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-        </li>
-    </ul>
-);
-
 const mapStateToProps = (state) => {
-    return {
-        auth: state.firebase.auth
-    }
+  return {
+    auth: state.firebase.auth
+  }
 };
 
 export default connect(mapStateToProps)(Navigation);

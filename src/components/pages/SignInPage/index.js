@@ -1,9 +1,13 @@
+// Core
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {signIn} from '../../../store/actions/authActions';
-import * as ROUTES from '../../../constants';
+
+// Instruments
 import '../../../theme/grid.scss';
+import styles from './styles.module.scss';
+import * as ROUTES from '../../../constants';
+import {signIn} from '../../../store/actions/authActions';
 
 const INITIAL_STATE = {
     email: 'yatskodi@gmail.com',
@@ -35,7 +39,9 @@ class SignIn extends Component {
         return (
             <div className='container'>
                 <h1>SignIn</h1>
-                <form onSubmit={this.onSubmit}>
+                <form
+                  className={styles.SignInForm}
+                  onSubmit={this.onSubmit}>
                     <input
                         name="email"
                         value={email}
@@ -50,7 +56,10 @@ class SignIn extends Component {
                         type="password"
                         placeholder="Password"
                     />
-                    <button disabled={isInvalid} type="submit">
+                    <button
+                      disabled={isInvalid}
+                      className={`btn btn--main ${styles.submitBtn}`}
+                      type="submit">
                         Sign In
                     </button>
                     {authError && <p>{authError}</p>}
