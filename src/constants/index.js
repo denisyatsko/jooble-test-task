@@ -1,3 +1,4 @@
 export const HOME = '/';
-export const FORM = '/form';
+export const ADD = '/add';
+export const EDIT = '/edit';
 export const SIGN_IN = '/signin';

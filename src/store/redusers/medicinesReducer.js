@@ -1,6 +1,5 @@
 const medicinesReducer = (state = [], action) => {
   const {data, id} = action;
-  // console.log(action)
 
   switch (action.type) {
     case 'GET_COLLECTION':
@@ -9,14 +8,18 @@ const medicinesReducer = (state = [], action) => {
     case 'ADD_MEDICINE':
       console.log('ADD_MEDICINE');
       return [...state, data];
+    case 'EDIT_MEDICINE':
+      console.log('EDIT_MEDICINE');
+      return data;
+    case 'UPDATE_MEDICINE':
+      console.log('UPDATE_MEDICINE');
+      return [...state].map(x => x.id === data.id ? data : x);
     case 'DELETE_MEDICINE':
       console.log('DELETE_MEDICINE');
-
       return state.filter(element => element.id !== id);
     default:
       return state;
   }
-
 };
 
 export default medicinesReducer;

@@ -4,9 +4,10 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 // instruments
-import {getCollection, deleteMedicine} from '../../../store/actions/medicinesActions';
 import '../../../theme/grid.scss';
 import styles from './styles.module.scss';
+import * as ROUTES from '../../../constants';
+import {getCollection, deleteMedicine} from '../../../store/actions/medicinesActions';
 
 class HomePage extends Component {
   state = {
@@ -14,58 +15,34 @@ class HomePage extends Component {
     isLoading: false
   };
 
-  componentDidMount() {
-    // this.setState({isLoading: true});
-    this.props.getCollection();
-  }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.medicines !== prevProps.medicines) {
-      this.setState({
-        medicines: this.props.medicines,
-        // isLoading: false
-      })
-    }
-  }
 
   render() {
     const {medicines, deleteMedicine} = this.props;
     const {isLoading} = this.state;
 
-    let auth = this.props.auth;
-
-    // if (!this.props.auth.uid) return <Redirect to={ROUTES.SIGN_IN}/>;
-
-    // return <Preloader/>;
-
-    // if (!isLoaded(auth)) {
-    //   return <Preloader/>
-    // }
-    // if (isEmpty(auth)) {
-    //   return <Redirect to={ROUTES.SIGN_IN}/>;
-    // }
+    // console.log(medicines)
 
     return (
       <div className='container'>
         <ul className={styles.collection}>
-          {medicines && medicines.map(item =>
-            <li key={item.id}>{item.task}
+          {Array.isArray(medicines) && medicines.map(item =>
+            <li key={item.id}>
             <div className={styles.infoWrapper}>
               <span>{item.code}</span>
               <span>{item.name}</span>
               <span>{item.price}</span>
             </div>
               <div className='d-flex justify-content-around'>
-                <button
+                <Link
+                  to={`${ROUTES.EDIT}/${item.id}`}
                   className={`btn btn--main ${styles.editButton}`}>Edit
-                </button>
+                </Link>
                 <button
                   className={`btn ${styles.deleteButton}`}
                   onClick={() => deleteMedicine(item.id)}>Delete
                 </button>
               </div>
-
-
             </li>)}
         </ul>
       </div>

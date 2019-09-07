@@ -19,14 +19,16 @@ const Navigation = (props) => {
   return (
     <header className={styles.header}>
       {!isEmpty(auth) && (
-        <ul className={`container ${styles.list}`}>
-          <li>
-            <Link to={ROUTES.FORM}><AddMedicineButton/></Link>
-          </li>
-          <li>
-            <SignOutButton/>
-          </li>
-        </ul>
+        <div className={'container'} style={{width: '100%'}}>
+          <ul className={styles.list}>
+            <li>
+              <Link to={ROUTES.ADD}><AddMedicineButton/></Link>
+            </li>
+            <li>
+              <SignOutButton/>
+            </li>
+          </ul>
+        </div>
       )}
     </header>
   );

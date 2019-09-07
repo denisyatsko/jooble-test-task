@@ -49,6 +49,11 @@
       display: flex;
       flex-wrap: nowrap;
       margin-bottom: 20px;
+
+      @media #{$desktop} {
+        margin-bottom: 0;
+      }
+
       & > * {
         font-weight: bold;
         font-size: 20px;
