@@ -53,7 +53,6 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     medicines: state.collection,
-    // auth: state.firebase.auth
   }
 };
 

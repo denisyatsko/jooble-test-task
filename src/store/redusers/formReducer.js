@@ -1,6 +1,14 @@
 const initialState = {
   step: 1,
-  fields: {},
+  fields: {
+    code: '',
+    name: '',
+    price: '',
+    indication: '',
+    expirationDate: '',
+    сontraindications: '',
+    compositionAndFormOfRelease: ''
+  },
   canSubmit: '',
 };
 
@@ -21,7 +29,15 @@ const formReducer = (state = initialState, action) => {
       console.log('RESET_FORM_VALUE');
       return {
         ...state,
-        fields: {}
+        fields: {
+          code: '',
+          name: '',
+          price: '',
+          indication: '',
+          expirationDate: '',
+          сontraindications: '',
+          compositionAndFormOfRelease: ''
+        }
       };
     case 'CAN_SUBMIT':
       console.log('CAN_SUBMIT');

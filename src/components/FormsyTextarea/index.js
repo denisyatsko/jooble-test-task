@@ -29,7 +29,6 @@ class FormsyTextarea extends React.Component {
           type={type}
           onChange={this.changeValue}
           value={this.props.getValue() || ''}
-          // className={className}
         />
         <span className={styles.errorMessage}>{errorMessage}</span>
       </div>

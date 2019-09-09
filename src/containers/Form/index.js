@@ -25,7 +25,7 @@ class Form extends Component {
   }
 
   onSubmit = model => {
-    const {changeStep, setFormValue, step} = this.props;
+    const {changeStep, setFormValue, step, form} = this.props;
     const id = this.props.match.params.id;
 
     const submit = (currentFormState) => {
@@ -43,7 +43,7 @@ class Form extends Component {
     };
 
     setFormValue(model);
-    submit({...this.props.form,...model});
+    submit({...form,...model});
   };
 
   setEditingMedicineToState = () => {
@@ -75,6 +75,7 @@ class Form extends Component {
     if (!this.props.auth.uid) return <Redirect to={ROUTES.SIGN_IN}/>;
 
     const {step, form, canSubmit, canSubmitState, changeStep} = this.props;
+    const id = this.props.match.params.id;
 
     return (
       <div>
@@ -166,7 +167,7 @@ class Form extends Component {
               formNoValidate
               type='submit'>
               {step === 2
-                ? form ? 'Edit' : 'Create'
+                ? id ? 'Edit' : 'Create'
                 : 'Next'}
             </button>
           </div>
