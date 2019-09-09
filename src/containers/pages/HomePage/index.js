@@ -26,7 +26,7 @@ class HomePage extends Component {
               <span>{item.name}</span>
               <span>{item.price}</span>
             </div>
-              <div className='d-flex justify-content-around'>
+              <div className='d-flex justify-content-around align-items-center'>
                 <Link
                   to={`${ROUTES.EDIT}/${item.id}`}
                   className={`btn btn--main ${styles.editButton}`}>Edit

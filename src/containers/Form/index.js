@@ -25,30 +25,40 @@ class Form extends Component {
   }
 
   onSubmit = model => {
-    const {changeStep, setFormValue, step, form} = this.props;
-    const id = this.props.match.params.id;
+    const {
+      addMedicine,
+      updateMedicine,
+      changeStep,
+      setFormValue,
+      step,
+      form,
+      match,
+      history
+    } = this.props;
+    const id = match.params.id;
 
     const submit = (currentFormState) => {
       if (step === 2) {
         if (!id) {
-          this.props.addMedicine(currentFormState);
+          addMedicine(currentFormState);
         } else {
-          let id = {id: this.props.match.params.id};
-          this.props.updateMedicine({...id, ...currentFormState});
+          let id = {id: match.params.id};
+          updateMedicine({...id, ...currentFormState});
         }
-        this.props.history.push('/');
+
+        history.push('/');
       } else {
         changeStep(step + 1);
       }
     };
 
     setFormValue(model);
-    submit({...form,...model});
+    submit({...form, ...model});
   };
 
   setEditingMedicineToState = () => {
-    const {medicines, setFormValue} = this.props;
-    let id = this.props.match.params.id;
+    const {medicines, setFormValue, match} = this.props;
+    let id = match.params.id; 
 
     medicines
       .filter(item => item.id === id)
@@ -67,22 +77,26 @@ class Form extends Component {
 
   componentWillUnmount() {
     const {changeStep, resetFormValue} = this.props;
+
     changeStep(1);
     resetFormValue();
   }
 
   render() {
-    if (!this.props.auth.uid) return <Redirect to={ROUTES.SIGN_IN}/>;
+    const {auth, step, form, canSubmit, canSubmitState, changeStep, match} = this.props;
+    const handleOnValid = () => canSubmit(true);
+    const handleOnInvalid = () => canSubmit(false);
+    const handleChangeStep = () => changeStep(step - 1);
+    const id = match.params.id;
 
-    const {step, form, canSubmit, canSubmitState, changeStep} = this.props;
-    const id = this.props.match.params.id;
+    if (!auth.uid) return <Redirect to={ROUTES.SIGN_IN}/>;
 
     return (
       <div>
         <Formsy
           onValidSubmit={this.onSubmit}
-          onValid={() => canSubmit(true)}
-          onInvalid={() => canSubmit(false)}
+          onValid={handleOnValid}
+          onInvalid={handleOnInvalid}
           noValidate
           className={styles.form}>
           {
@@ -155,7 +169,7 @@ class Form extends Component {
               step !== 1 && (
                 <button
                   className='btn btn--main'
-                  onClick={() => {changeStep(step - 1)}}
+                  onClick={handleChangeStep}
                   type='button'>
                   Prev
                 </button>

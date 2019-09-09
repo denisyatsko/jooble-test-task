@@ -13,8 +13,8 @@ class FormsyTextarea extends React.Component {
   };
 
   render() {
-    const { name, type, labeltext } = this.props;
-    const errorMessage = this.props.getErrorMessage();
+    const { name, labeltext, getErrorMessage, getValue } = this.props;
+    const value = getValue() || '';
 
     return (
       <div className={styles.item}>
@@ -26,11 +26,9 @@ class FormsyTextarea extends React.Component {
         <textarea
           id={name}
           name={name}
-          type={type}
-          onChange={this.changeValue}
-          value={this.props.getValue() || ''}
-        />
-        <span className={styles.errorMessage}>{errorMessage}</span>
+          value={value}
+          onChange={this.changeValue}/>
+        <span className={styles.errorMessage}>{getErrorMessage()}</span>
       </div>
     );
   }

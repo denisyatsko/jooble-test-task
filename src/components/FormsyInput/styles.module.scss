@@ -4,8 +4,14 @@
 .errorMessage {
   color: $red;
   position: absolute;
-  left: 200px;
+  left: 0;
   bottom: 0;
+  font-size: 12px;
+
+  @media #{$desktop} {
+    left: 200px;
+    font-size: 16px;
+  }
 }
 
 .item {
@@ -56,6 +62,10 @@
 .title {
   font-weight: bold;
   font-size: 20px;
-  width: 200px;
+  width: auto;
   flex-shrink: 0;
+
+  @media #{$desktop} {
+    width: 200px;
+  }
 }

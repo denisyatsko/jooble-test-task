@@ -47,11 +47,13 @@
 
     .infoWrapper {
       display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
+      flex-direction: column;
       margin-bottom: 20px;
 
       @media #{$desktop} {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
         margin-bottom: 0;
       }
 
@@ -60,12 +62,15 @@
         font-weight: bold;
         font-size: 20px;
         line-height: 20px;
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
 
         @media #{$desktop} {
           min-width: 150px;
-        }
-        &:not(:last-child) {
-          margin-right: 10px;
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
         }
       }
     }

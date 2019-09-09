@@ -1,23 +1,17 @@
 @import "./breakpoints";
 
 .container {
-  //width: 100%;
   padding: 0 15px;
   margin: 0 auto;
 }
 
 .d-flex {
   display: flex;
-  // width: 100%;
 }
 
 .d-block {
   display: block;
   width: 100%;
-}
-
-.col {
-  // max-width: 250px;
 }
 
 .justify-content-between {
