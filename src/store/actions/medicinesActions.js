@@ -1,7 +1,7 @@
 const collection = 'medicines_denis';
 
 export const getCollection = () => {
-  return (dispatch, getState, {getFirestore}) => {
+  return (dispatch, getState, {getFirestore, getFirebase}) => {
     const firestore = getFirestore();
 
     firestore.collection(collection).get().then((doc) => {

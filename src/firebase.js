@@ -13,8 +13,8 @@ export const firebaseConfig = {
 };
 
 export const config = {
-    userProfile: 'users', // firebase root where user profiles are stored
-    enableLogging: false, // enable/disable Firebase's database logging
+    userProfile: null,
+    enableLogging: false,
     useFirestoreForProfile: true
 };
 
