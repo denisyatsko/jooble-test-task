@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5eadfd3f-1348-44a1-a738-ef52910017dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormsyInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FormsyInput/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/medicinesActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/medicinesActions.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/store/actions/medicinesActions.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="60">
+              <caret line="3" column="50" lean-forward="true" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -42,6 +42,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="40">
               <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/FormsyInput/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="31" column="38" lean-forward="true" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+              <folding>
+                <element signature="e#11#53#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,17 +144,17 @@
         <option value="$PROJECT_DIR$/src/store/redusers/authReducer.js" />
         <option value="$PROJECT_DIR$/src/store/redusers/rootReducer.js" />
         <option value="$PROJECT_DIR$/src/components/FormsyTextarea/index.js" />
-        <option value="$PROJECT_DIR$/src/components/FormsyInput/index.js" />
         <option value="$PROJECT_DIR$/src/components/AddMedicine/index.js" />
         <option value="$PROJECT_DIR$/src/store/actions/formActions.js" />
         <option value="$PROJECT_DIR$/src/store/redusers/formReducer.js" />
         <option value="$PROJECT_DIR$/src/containers/Form/index.js" />
         <option value="$PROJECT_DIR$/src/firebase.js" />
         <option value="$PROJECT_DIR$/src/store/actions/medicinesActions.js" />
+        <option value="$PROJECT_DIR$/src/components/FormsyInput/index.js" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="1383" />
@@ -172,21 +184,14 @@
               <item name="jooble-test-task" type="b2602c69:ProjectViewProjectNode" />
               <item name="jooble-test-task" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="jooble-test-task" type="b2602c69:ProjectViewProjectNode" />
               <item name="jooble-test-task" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="jooble-test-task" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jooble-test-task" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="redusers" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="FormsyInput" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -258,12 +263,12 @@
       <workItem from="1567853392629" duration="29542000" />
       <workItem from="1567922271157" duration="14535000" />
       <workItem from="1568003636373" duration="4174000" />
-      <workItem from="1568014492464" duration="20107000" />
+      <workItem from="1568014492464" duration="20777000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197361000" />
+    <option name="totallyTimeSpent" value="198031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -554,16 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/FormsyInput/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding>
-            <element signature="e#11#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/AddMedicine/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -622,8 +617,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/store/actions/medicinesActions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="60">
+          <caret line="3" column="50" lean-forward="true" selection-start-line="3" selection-start-column="50" selection-end-line="3" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FormsyInput/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="31" column="38" lean-forward="true" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+          <folding>
+            <element signature="e#11#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

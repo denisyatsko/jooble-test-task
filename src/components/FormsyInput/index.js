@@ -12,11 +12,11 @@ class FormsyInput extends React.Component {
     setValue(event.currentTarget.value);
   };
 
+
+
   render() {
     const { name, type, labeltext } = this.props;
     const errorMessage = this.props.getErrorMessage();
-
-    // const className = this.props.getErrorMessage() ? `${styles.error}` : '';
 
     return (
       <div className={styles.item}>
@@ -29,9 +29,9 @@ class FormsyInput extends React.Component {
           id={name}
           name={name}
           type={type}
+          // onBlur={this.changeValue}
           onChange={this.changeValue}
           value={this.props.getValue() || ''}
-          // className={className}
         />
         <span className={styles.errorMessage}>{errorMessage}</span>
       </div>
