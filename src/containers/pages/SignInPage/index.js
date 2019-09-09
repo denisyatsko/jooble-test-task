@@ -4,9 +4,8 @@ import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 // Instruments
-import '../../../theme/grid.scss';
 import styles from './styles.module.scss';
-import * as ROUTES from '../../../constants';
+import {routes as ROUTES} from '../../../constants';
 import {signIn} from '../../../store/actions/authActions';
 
 const INITIAL_STATE = {

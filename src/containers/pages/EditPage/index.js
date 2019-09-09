@@ -4,15 +4,15 @@ import React, {Component} from 'react';
 // Components
 import Form from '../../Form';
 
-class AddPage extends Component {
+class EditPage extends Component {
   render() {
     return(
-      <div>
-        <h1>Add new medicine</h1>
+      <div className='container'>
+        <h1>Edit medicine</h1>
         <Form/>
       </div>
     )
   }
 }
 
-export default AddPage;
+export default EditPage;

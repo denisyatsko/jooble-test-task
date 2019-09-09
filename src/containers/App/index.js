@@ -1,20 +1,23 @@
+// Core
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { isLoaded, isEmpty } from 'react-redux-firebase';
-import {deleteMedicine, getCollection} from './store/actions/medicinesActions';
+import {isLoaded, isEmpty} from 'react-redux-firebase';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
-import Navigation from './components/Navigation';
-import SignInPage from './components/pages/SignInPage';
-import AddPage from './components/pages/AddPage';
-import EditPage from './components/pages/EditPage';
-import HomePage from './components/pages/HomePage';
-import * as ROUTES from './constants';
+// Components
+import Preloader from '../../components/preloader';
+import Navigation from '../Navigation';
+import SignInPage from '../pages/SignInPage';
+import AddPage from '../pages/AddPage';
+import EditPage from '../pages/EditPage';
+import HomePage from '../pages/HomePage';
 
-import './theme/init.scss';
-import Preloader from './components/preloader';
+// Instruments
+import '../../theme/init.scss';
+import {routes as ROUTES} from '../../constants';
+import {getCollection} from '../../store/actions/medicinesActions';
 
-class App extends Component {
+class Index extends Component {
   componentDidMount() {
     this.props.getCollection();
   }
@@ -41,7 +44,6 @@ class App extends Component {
           <Route path={ROUTES.ADD} component={AddPage}/>
           <Route path={ROUTES.SIGN_IN} component={SignInPage}/>
           <Route exact path={ROUTES.HOME} component={HomePage}/>
-          {/*<Route path={`${ROUTES.EDIT}`} component={EditPage}/>*/}
           <Route path={`${ROUTES.EDIT}/:id`} component={EditPage}/>
           {isEmpty(auth) && <Redirect to={ROUTES.SIGN_IN}/>}
         </div>
@@ -62,4 +64,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

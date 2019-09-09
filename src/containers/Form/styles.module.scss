@@ -1,0 +1,46 @@
+@import '../../theme/vars.scss';
+@import '../../theme/breakpoints.scss';
+
+.form {
+  width: 100%;
+  margin: 0 auto;
+
+  @media #{$desktop} {
+    width: 600px;
+  }
+
+  .disabledBtn,
+  .disabledBtn:hover {
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: default;
+  }
+
+  .buttonWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .cancelBtn {
+      order: 1;
+      margin: 15px 0 0 0;
+
+      @media #{$phone} {
+        order: 0;
+        margin-top: 0;
+      }
+    }
+
+    * {
+      margin: 0 5px;
+      width: 120px;
+      &:not(:last-child) {
+        @media #{$desktop} {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+

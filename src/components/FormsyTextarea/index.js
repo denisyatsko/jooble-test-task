@@ -3,9 +3,9 @@ import { withFormsy } from 'formsy-react';
 import React from 'react';
 
 // // Instruments
-import styles from './styles.module.scss';
+import styles from '../FormsyInput/styles.module.scss';
 
-class FormsyInput extends React.Component {
+class FormsyTextarea extends React.Component {
   changeValue = (event) => {
     const {setValue} = this.props;
 
@@ -16,8 +16,6 @@ class FormsyInput extends React.Component {
     const { name, type, labeltext } = this.props;
     const errorMessage = this.props.getErrorMessage();
 
-    // const className = this.props.getErrorMessage() ? `${styles.error}` : '';
-
     return (
       <div className={styles.item}>
         <label
@@ -25,7 +23,7 @@ class FormsyInput extends React.Component {
           htmlFor={name}>
           {labeltext}
         </label>
-        <input
+        <textarea
           id={name}
           name={name}
           type={type}
@@ -39,4 +37,4 @@ class FormsyInput extends React.Component {
   }
 }
 
-export default withFormsy(FormsyInput);
+export default withFormsy(FormsyTextarea);

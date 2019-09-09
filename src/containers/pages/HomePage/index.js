@@ -4,22 +4,17 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 // instruments
-import '../../../theme/grid.scss';
 import styles from './styles.module.scss';
-import * as ROUTES from '../../../constants';
+import {routes as ROUTES} from '../../../constants';
 import {getCollection, deleteMedicine} from '../../../store/actions/medicinesActions';
 
 class HomePage extends Component {
   state = {
     medicines: [],
-    isLoading: false
   };
 
   render() {
     const {medicines, deleteMedicine} = this.props;
-    const {isLoading} = this.state;
-
-    // console.log(medicines)
 
     return (
       <div className='container'>
@@ -58,7 +53,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     medicines: state.collection,
-    auth: state.firebase.auth
+    // auth: state.firebase.auth
   }
 };
 

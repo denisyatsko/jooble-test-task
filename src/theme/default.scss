@@ -1,6 +1,10 @@
 @import './breakpoints';
 @import './vars';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -26,6 +30,7 @@ body {
   color: #fff;
   white-space: nowrap;
   font-weight: bold;
+  font-size: 14px;
   padding: 10px 25px;
   cursor: pointer;
   border-width: 2px;
@@ -34,25 +39,25 @@ body {
   text-decoration: none;
   border-radius: $borderRadius;
   transition: $transition;
-}
 
-.btn--main {
-  background-color: $lightBlue;
-  border-color: $lightBlue;
+  &--main {
+    background-color: $lightBlue;
+    border-color: $lightBlue;
 
-  &:hover {
-    background-color: $green;
-    border-color: $green;
-    color: #fff;
+    &:hover {
+      background-color: $green;
+      border-color: $green;
+      color: #fff;
+    }
   }
-}
 
-.btn--cancel {
-  background-color: $red;
-  border-color: $red;
+  &--cancel {
+    background-color: $red;
+    border-color: $red;
 
-  &:hover {
-    background-color: #fff;
-    color: $red;
+    &:hover {
+      background-color: #fff;
+      color: $red;
+    }
   }
 }

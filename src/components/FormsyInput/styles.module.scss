@@ -1,19 +1,26 @@
 @import '../../theme/vars.scss';
+@import '../../theme/breakpoints.scss';
 
 .errorMessage {
   color: $red;
   position: absolute;
-  left: 150px;
+  left: 200px;
   bottom: 0;
 }
 
 .item {
   width: 100%;
   display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
   position: relative;
 
-  input {
+  @media #{$desktop} {
+    flex-direction: row;
+  }
+
+  input,
+  textarea {
     width: 100%;
     border: none;
     border-bottom: 3px solid #ccc;
@@ -30,11 +37,25 @@
       outline: none;
     }
   }
+
+  textarea {
+    width: auto;
+    border: 3px solid #ccc;
+    padding: 10px;
+    line-height: 18px;
+    font-size: 18px;
+    resize: none;
+    min-height: 100px;
+
+    @media #{$desktop} {
+      width: 100%;
+    }
+  }
 }
 
 .title {
   font-weight: bold;
   font-size: 20px;
-  width: 150px;
+  width: 200px;
   flex-shrink: 0;
 }

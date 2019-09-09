@@ -1,17 +1,14 @@
 // Core
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import {isEmpty} from 'react-redux-firebase';
 
 // Components
-import SignOutButton from '../SignOut';
-import AddMedicineButton from '../addMedicine';
+import SignOutButton from '../../components/SignOut';
+import AddMedicineButton from '../../components/AddMedicine';
 
 // instruments
-import * as ROUTES from '../../constants';
 import styles from './styles.module.scss';
-import '../../theme/grid.scss';
 
 const Navigation = (props) => {
   let auth = props.auth;
@@ -22,7 +19,7 @@ const Navigation = (props) => {
         <div className={'container'} style={{width: '100%'}}>
           <ul className={styles.list}>
             <li>
-              <Link to={ROUTES.ADD}><AddMedicineButton/></Link>
+              <AddMedicineButton/>
             </li>
             <li>
               <SignOutButton/>

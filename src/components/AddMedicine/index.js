@@ -1,29 +1,22 @@
 // Core
 import React from 'react';
-import {connect} from 'react-redux';
-// import {addMedicine} from '../../store/actions/medicinesActions';
+import {Link} from 'react-router-dom';
 import { Icon } from 'react-icons-kit';
 import {androidAddCircle} from 'react-icons-kit/ionicons/androidAddCircle';
 
 // instruments
 import styles from './styles.module.scss';
+import {routes as ROUTES} from '../../constants';
 
 const AddMedicineButton = () =>  {
   return(
-    <div className={styles.btn}>
+    <Link to={ROUTES.ADD} className={styles.btn}>
       <Icon
         title='add medicine'
         icon={androidAddCircle}
         size={'100%'}/>
-    </div>
+    </Link>
   )
 };
 
 export default AddMedicineButton;
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     addMedicine: () => dispatch(addMedicine())
-//   }
-// };
-//
-// export default connect(null, mapDispatchToProps)(AddMedicineButton);

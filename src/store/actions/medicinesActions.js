@@ -33,22 +33,6 @@ export const deleteMedicine = (id) => {
   }
 };
 
-export const editMedicine = (id) => {
-  return (dispatch, getState, {getFirestore}) => {
-    const firestore = getFirestore();
-
-    firestore.collection(collection).doc(id).get().then((doc) => {
-      let info = doc.data();
-      let id = {id: doc.id};
-      let data = {...id, ...info};
-
-      dispatch({type: 'EDIT_MEDICINE', data})
-    }).catch((err) => {
-      console.log(`error => ${err}`);
-    });
-  }
-};
-
 export const addMedicine = (medicine) => {
   return (dispatch, getState, {getFirestore}) => {
     const firestore = getFirestore();
