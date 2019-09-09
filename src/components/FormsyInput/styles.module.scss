@@ -1,0 +1,40 @@
+@import '../../theme/vars.scss';
+
+.errorMessage {
+  color: $red;
+  position: absolute;
+  left: 150px;
+  bottom: 0;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  position: relative;
+
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid #ccc;
+    margin-bottom: 20px;
+    line-height: 30px;
+    font-size: 18px;
+    color: #121212;
+    transition: $transition;
+
+    &:focus,
+    &:active,
+    &:hover {
+      border-color: $lightBlue;
+      outline: none;
+    }
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+  width: 150px;
+  flex-shrink: 0;
+}

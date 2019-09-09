@@ -14,11 +14,11 @@ class Edit extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.item !== prevProps.item) {
-      this.setState({
-        medicines: this.props.medicines,
-      })
-    }
+    // if (this.props.item !== prevProps.item) {
+    //   this.setState({
+    //     medicines: this.props.medicines,
+    //   })
+    // }
   }
 
   render() {
@@ -33,13 +33,13 @@ class Edit extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    editMedicine: (id) => dispatch(editMedicine(id)),
+    // editMedicine: (id) => dispatch(editMedicine(id)),
   }
 };
 
 const mapStateToProps = (state) => {
   return {
-    item: state.collection
+    // item: state.collection
   }
 };
 

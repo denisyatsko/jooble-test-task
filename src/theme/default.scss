@@ -41,9 +41,9 @@ body {
   border-color: $lightBlue;
 
   &:hover {
-    //background-color: #fff;
     background-color: $green;
-    color: $lightBlue;
+    border-color: $green;
+    color: #fff;
   }
 }
 

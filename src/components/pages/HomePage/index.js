@@ -15,8 +15,6 @@ class HomePage extends Component {
     isLoading: false
   };
 
-
-
   render() {
     const {medicines, deleteMedicine} = this.props;
     const {isLoading} = this.state;

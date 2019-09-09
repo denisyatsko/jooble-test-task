@@ -1,0 +1,11 @@
+@import '../../theme/vars.scss';
+
+.form {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.disabledBtn {
+  background-color: #ccc !important;
+  border-color: #ccc !important;
+}
