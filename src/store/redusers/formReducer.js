@@ -20,13 +20,11 @@ const formReducer = (state = initialState, action) => {
         step: action.step
       };
     case 'SET_FORM_VALUE':
-      console.log('CHANGE_FORM');
       return {
         ...state,
         fields: {...state.fields, ...action.fields}
       };
     case 'RESET_FORM_VALUE':
-      console.log('RESET_FORM_VALUE');
       return {
         ...state,
         fields: {
@@ -40,7 +38,6 @@ const formReducer = (state = initialState, action) => {
         }
       };
     case 'CAN_SUBMIT':
-      console.log('CAN_SUBMIT');
       return {
         ...state,
         canSubmit: action.value

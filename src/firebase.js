@@ -1,6 +1,6 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
-import 'firebase/auth'
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyBPGa2QRSfvGMLVSgvPeCYRX_fJL7zdex8",
@@ -18,9 +18,6 @@ export const config = {
     useFirestoreForProfile: true
 };
 
-export const collection = 'medicines_denis';
-
 firebase.initializeApp(firebaseConfig);
-// firebase.firestore();
 
 export default firebase;
